@@ -1,0 +1,12 @@
+##Pipeline
+Perintah yang dikirim dari client ke server redis menggunakan Request/Response protocol.
+Artinya tiap request yang dikirim ke server redis, maka redis akan membalasnya secara langsung.
+Kadang kita ada kebutuhan untuk mengirim data ke redis dalam jumlah yang besar, misal ketika ada kasus memindahkan data dari database mysql ke redis.
+Jika kita mengirim satu persatu datanya, maka akan butuh waktu yang lama untuk selesai.
+Redis mendukung operasi bulk via pipeline, dimana kita bisa mengirim beberapa perintah sekaligus dalam satu request.
+Namun perlu diketahui, server redis tidak akan membalas tiap perintah yang dikirim via pipeline.
+
+##Operasi pipeline menggunakan redis cli
+redis-cli -h localhost --pipe
+
+cat sets.txt | redis-cli -h

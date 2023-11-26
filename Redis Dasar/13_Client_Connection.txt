@@ -1,0 +1,14 @@
+##Client connection
+Redis menyimpan semua informasi client di server.
+Hal ini memudahkan kita untuk melihat daftar client, dan juga mengecek jika ada anomali seperti terlalu banyak koneksi ke redis.
+
+##Menampilkan list semua koneksi client ke redis server
+client list
+
+##menampilkan ID client yang saat ini digunakan
+client id
+
+##menghapus koneksi client 
+client kill 172.17.1.11:34754
+
+*ip dan port client dapat dilihat menggunakan perintah client list 

@@ -1,0 +1,24 @@
+##Eviction
+Ketika memory redis penuh, maka redis secara default akan mereject semua request penyimpanan data.
+Hal ini mungkin menjadi masalah ketika kita hanya menggunakan redis sebagai cache untuk media penyimpanan sementara.
+Kadang akan sangat berguna jika memory penuh, redis bisa secara otomatis menghapus data yang sudah jarang digunakan.
+
+Redis memiliki fitur eviction (menghapus data lama dan menerima data baru).
+Namun untuk mengaktifkan fitur ini kita perlu memberi tahu redis maximun memory yang boleh digunakan dan bagaimana strategi untuk melakukan evictionnya.
+
+##The following policies are available
+noeviction: New values aren’t saved when memory limit is reached. When a database uses replication, this applies to the primary database
+allkeys-lru: Keeps most recently used keys; removes least recently used (LRU) keys
+allkeys-lfu: Keeps frequently used keys; removes least frequently used (LFU) keys
+volatile-lru: Removes least recently used keys with the expire field set to true.
+volatile-lfu: Removes least frequently used keys with the expire field set to true.
+allkeys-random: Randomly removes keys to make space for the new data added.
+volatile-random: Randomly removes keys with expire field set to true.
+volatile-ttl: Removes keys with expire field set to true and the shortest remaining time-to-live (TTL) value.
+
+#Melakukan eviction melalui konfigurasi
+vim redis.conf
+
+maxmemory 100mb
+maxmemory-policy noeviction
+

@@ -1,0 +1,28 @@
+##Menginstal redis disarankan menggunakan image docker
+vim docker-compose.yaml
+
+version: '3.5'
+services:
+  redis:
+    container_name: redis
+    image: redis:6
+    ports:
+      - 6379:6379
+
+docker-compose -f docker-compose.yaml up -d
+
+
+
+### Redis Server vs Redis CLI ###
+#Redis server vs Redis cli
+Saat kita menginstal redis, ada dua aplikasi yaang terinstall yaitu redis server dan redis cli.
+Redis server adalah aplikasi server untuk redis itu dendiri.
+Sedangkan redis cli adalah aplikasi command line untuk client yang digunakan untuk berkomunikasi dengan redis server.
+
+#Connect ke redis server via redis cli 
+redis-cli -h <host> -p <port>  
+redis-cli -h localhost                          #otomatis menggunakan default port redis 6379
+
+#test koneksi
+localhost:6379> ping
+PONG

@@ -1,0 +1,7 @@
+##Monitor
+Kadang ada kasus dimana kita ingin mendebug aplikasi saat berkomunikasi dengan redis.
+Redis memiliki fitur monitor yakni fitur untuk memonitor semua request yang masuk ke redis server.
+Dengan fitur ini kita bisa dengan mudah mendebug jika ternyata ada perintah yang salah yang dikirim oleh aplikasi kita ke redis server.
+
+##melakukan monitor
+monitor

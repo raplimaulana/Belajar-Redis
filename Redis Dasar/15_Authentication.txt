@@ -1,0 +1,19 @@
+##Authentication
+Authentication aalah proses verifikasi identitas untuk memastikan bahwa yang mengakses adalah identitas yang benar.
+Redis memiliki fitur authentication dan kita bisa menambahkannya di file konfigurasi di server redis.
+Namun perlu diingat, proses authentication di redis itu sangat cepat. Jadi Pastikan gunakan password sepanjang mungkin agar tidak mudah utuk di brute force.
+
+#Konfigurasi user
+vim redis.conf
+
+user default on +@connection
+user maulana on +@all >pass123
+user rapli +@list +@connection ~jobs:* on >pass123
+
+##melihat acl yang tersedia untuk hak akses user redis
+acl cat 
+acl cat read
+
+##menampilkan acl user saat ini
+acl list
+

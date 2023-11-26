@@ -1,0 +1,16 @@
+##Redis
+Redis (Remote Dictionary Server) merupakan sistem basis data key-Value berbasis memory.
+Paradigma key-value adalah paradigma dimana data disimpan dalam bentuk pair (key-value).
+Key mirip dengan primary key dari data, sedangkan value adalah isi dari datanya. 
+
+Redis menyimpan datanya di memory, namun kita bisa memintanya untuk menyimpan datanya secara reguler permanen di disk.
+Data di disk hanya dijadikan backup ketika redis berjalan ulang. Selama redis berjalan, redis hanya akan melakukan manipulasi data ke memory
+
+##Kapan butuh redis?
+Saat kita membuat aplikasi, tidak langsung wajib menggunakan Redis.
+Redis menggunakan memory sebagai media penyimpanan utama, otomatis harga memory lebih mahal dibandingkan disk
+
+- Ketika database utama lambat
+- Ketika ada aplikasi lambat
+- Ketika ada proses berat di aplikasi
+- Ketika butuh membuat scalling asynchronus / mendelay job

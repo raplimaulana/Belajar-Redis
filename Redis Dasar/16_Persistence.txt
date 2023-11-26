@@ -1,0 +1,18 @@
+##Persistence
+
+Media penyimpanan utama redis adalah memory.
+Namun kita bisa menyimpan data di memory tersebut di disk jika kita mau.
+Perlu diingat proses penyimpanan data ke disk redis tidak realtime. Dia melakukan scheduler dengan konfigurasi tertentu.
+Jadi jangan jadikan redis sebagai media penyimpanan persistence. Gunakan redis sebagai database untuk membantu database persistence lainnya.
+Data akan disimpan ke dalam file dump.rdb
+
+##Melakukan persistence melalui komfigurasi 
+vim redis.conf
+
+save 900 1 300 10 60 10000
+
+*apabila dalam 900 detik ada 1 perubahan makan datanya aka di simpan ke disk, atau jika dalam 300 detik ada 10 perubahan maka datanya akan disimpan ke dalam disk, dst.
+
+##Melakukan persistence secara manual
+save 
+bgsave      #diekseskusi secara background 

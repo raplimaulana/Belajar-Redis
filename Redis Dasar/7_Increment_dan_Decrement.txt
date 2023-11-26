@@ -1,0 +1,20 @@
+#Increment dan decrement
+Operasi increment dan decrement sekilas sangat mudah dilakukan, hanya tinggal mengupdate yang di redis dengan data baru (data lama ditambah 1).
+Namun jika operasi dilakukan secara paralel dan dalam waktu yang sangat cepat, hal ini bisa memungkinkan race condition.
+Untungnya redis memiliki operasi untuk melakukan increment dan decrement.
+
+Contoh manual increment yang tidak aman, karena jika ada banyak perintah melakukan set akan terjadi race condition
+get contohkey1   = 1
+set contohkey1 2 = 2
+
+#Melakukan increment value +1
+incr contohkey1
+
+#Melakukan increment value lebih dari +1, contoh +3
+incrby contohkey1 3      
+
+#Melakukan decrement value -1
+decr contohkey1
+
+#Melakukan increment value lebih dari +1, contoh +3
+decrby contohkey1 3  

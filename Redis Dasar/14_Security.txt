@@ -1,0 +1,13 @@
+##Security
+Secara default, ketika kita menyalakan redis server, redis server akan mendengarkan request dari semua network inerface. 
+Hal ini sangat berbahaya karena redisnya jadi terekspos secara public.
+Namun Redis punya secondary layer untuk pengecekan koneksi, yaitu mode protect.
+Secara default mode protectnya aktif, artinya walaupun redis bisa diakses dari manapun, tetapi redis hanya mau menerima request dari 127.0.0.1 (localhost).
+
+##konfigurasi network
+vim redis.conf
+
+bind 192.168.1.100 10.0.0.1
+bind 172.0.0.1 ::1           #secara default bind tidak dilakukan
+
+protected-mode yes

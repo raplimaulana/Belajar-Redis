@@ -1,0 +1,54 @@
+##string
+Redis sebenarnya mendukung banyak struktur data seperti string, list, set, dst.
+Namun yang paling sering digunakan adalah struktur data strig.
+
+##Operasi data string
+
+----------------------------------------------------------------|
+Operasi              |               Keterangan                 |
+---------------------|------------------------------------------|
+set <key> <value>    | Set the string value of a key            |
+get <key>            | Get the value of a key                   |
+del <key>            | Delete a key                             |
+append <key> <value> | Append a value to a key                  |
+keys pattern         | Find all keys macthing the given pattern |
+---------------------|------------------------------------------|
+
+##Memasukan data string ke dalam redis
+set contohkey1 rapli
+set contohkey2 "rapli maulana aji"
+
+##Mengambil value sebuah key
+get contohkey1
+
+*jika keynya tidak ada, akan mengeluarn output (nil)
+
+##Mengecek apakah keynya ada atau tidak
+exist contohkey2
+
+##dDlete key redis
+del contohkey1
+del contohkey1 contohkey2
+
+##Menambah di value di baris terakhir key
+append contokey1 " maulana"
+
+##Mengambil value dari banyak key 
+mget contohkey1 contohkey2             
+
+##Memasukan banyak data string ke dalam redis
+mset contohkey1 "rapli" contohkey2 "rapli maulana aji"
+
+##Mengambil value dari banyak key menggunakan regex
+keys contohkey*                      #setara dengan get contohkey1 + get contohkey2
+
+##Mengambil value sebuah key dengan range tertentu
+getrange contohkey1 0 3
+"rap"
+
+##Mengubah value sebuah key dengan range tertentu
+setrange contohkey1 0 3 eka
+"ekali"
+
+
+ 

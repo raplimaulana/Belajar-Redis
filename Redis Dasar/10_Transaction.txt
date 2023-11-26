@@ -1,0 +1,15 @@
+##Transaction
+Seperti pada database relational, redis juga mendukung transaction.
+Proses transaction adalah proses dimana kita mengirimkan beberapa perintah, dan perintah tersebut akan dianggap sukses jika semua perintah sukses. Jika gagal maka semua perintah tersebut harus dibatalkan.
+
+#melakukan transaction
+multi
+set contohkey1 "rapli"
+set contohkey2 "maulana aji"
+exec
+
+#membatalkan transaction
+multi
+set contohkey1 "rapli"
+set contohkey2 "maulana aji"
+discard

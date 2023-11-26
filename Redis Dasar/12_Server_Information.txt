@@ -1,0 +1,13 @@
+##Server information
+Kadang kita butuh mendapatkan informasi dan statistik redis server.
+Seperti jumlah memory yang sudah terpakai, konfigurasi, dll.
+Redis memiliki fitur ini, sehingga kita sangat mudah untuk mendapat informasi server dan memonitornya.
+
+##menampilkan informasi dan satatistik server
+info
+
+##menampilkan konfigurasi dari file redis.conf
+config
+
+##menampilkan perintah-perintah yang eksekusinya lambat
+slowlog
